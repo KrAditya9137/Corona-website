@@ -1,0 +1,2365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Coronavirus Covid-19 Virus Data &mdash; Global Data Dashboard</title>
+<meta name="description" content="Data visualisation of the Covid-19 Pandemic">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-162255900-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-162255900-1');
+</script>
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" sizes="96x96" href="img/favicon-96x96.png">
+
+<link rel="stylesheet" href="https://use.typekit.net/shc8nxz.css">
+
+<link href="css/main.css" rel="stylesheet" type="text/css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="js/navigation.js"></script>
+
+<!-- social description -->
+<meta property="og:url" content="http://covid19virusdata.com">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Coronavirus Covid-19 Data Dashboard">
+<meta property="og:description" content="Visualisating the global pandemic">
+<meta property="og:image" content="http://covid19virusdata.com/img/social.jpg">
+
+</head>
+
+<body>
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<link class="rs-file" href="css/royalslider.css" rel="stylesheet">
+<link class="rs-file" href="css/jq-vertical-dot-navigation.css" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="js/jquery.royalslider.min.js"></script>
+
+<script>
+function handleResize() {
+var h = $(window).height();
+var w = $(window).width();
+        $('.landing-section').css({'height':h+'px'});
+}
+$(function(){
+        handleResize();
+
+        $(window).resize(function(){
+        handleResize();
+    });
+});
+</script>
+
+<script src="js/jq-vertical-dot-nav.js"></script>
+
+<script>
+
+      $(document).ready(function(){
+        $('.s_section').verticalDotNav({
+          align : "right",
+          dot_color: "#ffffff",
+          dot_size: 3,
+          nav_color: "none"
+        });
+      })
+</script>
+
+
+<script>
+$(document).ready(function(){
+  $(".toggle-01").click(function(){
+    $(".toggle-01").addClass("active");
+    $(".toggle-02").removeClass("active");
+    $(".graph-01").addClass("invisible");
+    $(".graph-01").removeClass("invisible");
+    $(".graph-02").addClass("invisible");
+    return false;
+  });
+});
+</script>
+
+<script>
+$(document).ready(function(){
+  $(".toggle-02").click(function(){
+    $(".toggle-02").addClass("active");
+    $(".toggle-01").removeClass("active");
+    $(".graph-02").addClass("visible");
+    $(".graph-02").removeClass("invisible");
+    $(".graph-01").addClass("invisible");
+    return false;
+  });
+});
+</script>
+
+
+
+<script>
+$(document).ready(function(){
+  $(".toggle-03").click(function(){
+    $(".toggle-03").addClass("active");
+    $(".toggle-04").removeClass("active");
+    $(".graph-03").addClass("invisible");
+    $(".graph-03").removeClass("invisible");
+    $(".graph-04").addClass("invisible");
+    return false;
+  });
+});
+</script>
+
+<script>
+$(document).ready(function(){
+  $(".toggle-04").click(function(){
+    $(".toggle-04").addClass("active");
+    $(".toggle-03").removeClass("active");
+    $(".graph-04").addClass("visible");
+    $(".graph-04").removeClass("invisible");
+    $(".graph-03").addClass("invisible");
+    return false;
+  });
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+  $(".toggle-05").click(function(){
+    $(".toggle-05").addClass("active");
+    $(".toggle-06").removeClass("active");
+    $(".graph-06").addClass("invisible");
+    $(".graph-05").removeClass("invisible");
+    $(".graph-06").addClass("invisible");
+    return false;
+  });
+});
+</script>
+
+<script>
+$(document).ready(function(){
+  $(".toggle-06").click(function(){
+    $(".toggle-06").addClass("active");
+    $(".toggle-05").removeClass("active");
+    $(".graph-06").addClass("visible");
+    $(".graph-06").removeClass("invisible");
+    $(".graph-05").addClass("invisible");
+    return false;
+  });
+});
+</script>
+
+
+
+<script>
+function numberWithCommas(number) {
+    var parts = number.toString().split(".");
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return parts.join(".");
+}
+$(document).ready(function() {
+  $(".stat-number").each(function() {
+    var num = $(this).text();
+    var commaNum = numberWithCommas(num);
+    $(this).text(commaNum);
+  });
+});
+$(document).ready(function() {
+  $(".table-col-bar").each(function() {
+    var num = $(this).text();
+    var commaNum = numberWithCommas(num);
+    $(this).text(commaNum);
+  });
+});
+$(document).ready(function() {
+  $(".numeral").each(function() {
+    var num = $(this).text();
+    var commaNum = numberWithCommas(num);
+    $(this).text(commaNum);
+  });
+});
+</script>
+
+<script>
+$(document).ready(function(){
+  $(".loader").delay(50).fadeOut(1400);
+});
+</script>
+
+<div class="loader">
+
+</div>
+
+
+
+<div class="info-pane">
+  <div class="info-close"></div>
+  <div class="info-pane-content">
+    <div class="info-pane-close"></div>
+<h2>Information</h2>
+<p>
+  The horrific Covid&ndash;19 pandemic is affecting the whole world &mdash; some countries far worse than others. This dashboard has been created for public information purposes, visualising the key data, limited to the 16 worst affected countries at any given time. It is not intended to be a comprehensive report, nor does it offer any opinion or comment. It is a simple snapshot &mdash; designed to be informative, user-friendly and easy to digest.
+  <br /><br />
+  The data is sourced from a number of reliable sources<sup>*</sup> and updated daily whenever possible. The website is coded using liquid, javascript, html and css &mdash; no external libraries or plugins are used to generate the charts.
+</p>
+  <h4>About the Developer</h4>
+  <p>
+  Andrew Winter is a British Art Director, Designer and Developer specialising in brand identity, website and UI design. Over recent years he has led data visualisation projects for a number of leading apps and brands including FIFA, Formula E, McLaren and Samsung. <br /><br />
+  <a href="http://winteractive.co">winteractive.co</a>
+</p>
+<div class="info-pane-footer">
+<p>
+  * Whilst every attempt is made to ensure data is accurate, this website is an unofficial source, therefore accuracy of data cannot be guaranteed
+</p>
+  </div>
+</div>
+</div>
+<div class="page-fade"></div>
+<div class="dots-nav-container" data-aos="fade-in" data-aos-delay="2000" data-aos-duration="1600"></div>
+<div class="body-pane">
+
+
+
+
+<div class="nav">
+  <div data-aos="fade-in" data-aos-delay="2600" data-aos-duration="1600">
+<a class="info-button">Information</a>
+</div>
+</div>
+
+<div class="landing-section s_section">
+<div class="awwwards">
+  <a href="https://www.awwwards.com/sites/covid-19-data-dashboard" target="_blank"><img src="img/awwwards.png" alt="Awwwards Honors">
+</a>
+  </div>
+
+<header>
+
+  <div data-aos="fade-up" data-aos-delay="600" data-aos-duration="1800">
+<h1>Covid&ndash;19<br /><span class="txt-light">Global Data Dashboard</span></h1>
+<div class="update-status">
+Last updated: 25.04.20 &bull; 22:30 GMT
+</div>
+
+</div>
+</header>
+
+<div class="main-stats" data-aos="fade-up" data-aos-delay="1200" data-aos-duration="2000">
+<div class="main-stats-inner">
+<div class="centered reset">
+
+
+
+
+
+
+
+
+
+
+
+<div class="infographic-total-stat">
+<div class="stat-number digit">
+2910505
+</div>
+<div class="stat-caption">Cases</div>
+<div class="case-change-stat numeral" style="background: #dd1053">
++
+81679	
+</div>
+
+</div>
+<div class="infographic-total-stat">
+<div class="stat-number digit">
+202851
+</div>
+<div class="stat-caption">Fatalities</div>
+
+<div class="case-change-stat numeral" style="background: #dd1053">
+
++
+
+5752	
+</div>
+
+</div>
+<div class="infographic-total-stat">
+<div class="stat-number digit">
+1875153
+</div>
+<div class="stat-caption">Active Cases</div>
+</div>
+</div>
+</div>
+
+</div>
+
+
+
+<!-- slideshow start -->
+<div id="slider-home" class="royalSlider rsDefault">
+    <a class="rsImg" href="img/landing-bg.jpg"></a>
+    <a class="rsImg" href="img/landing-bg-02.jpg"></a>
+    <a class="rsImg" href="img/landing-bg-03.jpg"></a>
+</div>
+
+  <script id="addJS">jQuery(document).ready(function($) {
+  $('#slider-home').royalSlider({
+    usePreloader: true,
+    numImagesToPreload: 1,
+    slidesOrientation: 'horizontal',
+    fadeinLoadedSlide: true,
+    randomizeSlides: true,
+    arrowsNav: false,
+    transitionType: 'fade',
+    transitionSpeed: 4000,
+    slidesSpacing: 0,
+    sliderDrag: false,
+    sliderTouch: false,
+    loop: true,
+    keyboardNavEnabled: true,
+    controlsInside: false,
+    imageScaleMode: 'fill',
+    imageAlignCenter: true,
+    arrowsNavAutoHide: false,
+    autoScaleSlider: false,
+    arrowsNavHideOnTouch: false,
+    controlNavigation: false,
+    globalCaption: false,
+    thumbsFitInViewport: false,
+    navigateByClick: false,
+    startSlideId: 0,
+    autoPlay: {
+            // autoplay options go here
+            enabled: true,
+            delay: 600,
+            pauseOnHover: false
+    }
+
+  });
+});
+</script>
+<!-- slideshow end -->
+</div>
+
+
+<div class="section s_section">
+<div class="section-inner" data-aos="fade-up">
+<div class="section-header">
+<h2>Virus cases by country</h2>
+<p>Confirmed cases</p>
+<div class="toggle">
+<ul>
+  <li class="toggle-01 active">Active Cases</li>
+  <li class="toggle-02">Total Cases</li>
+</ul>
+</div>
+</div>
+
+<div class="graph-01">
+<div class="infographic-table-graph">
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="infographic-table-row">
+    <div class="table-col">USA</div>
+    <div class="table-col-bar limited-two" style="width:78.4%; max-width: 85% !important;">784072</div>
+    
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+  <div class="infographic-table-row">
+    <div class="table-col">UK</div>
+    <div class="table-col-bar limited-two" style="width:12.7%; max-width: 85% !important;">127714</div>
+    
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+  <div class="infographic-table-row">
+    <div class="table-col">Ita</div>
+    <div class="table-col-bar limited-two" style="width:10.5%; max-width: 85% !important;">105847</div>
+    
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+  <div class="infographic-table-row">
+    <div class="table-col">Spa</div>
+    <div class="table-col-bar limited-two" style="width:10.5%; max-width: 85% !important;">105149</div>
+    
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+  <div class="infographic-table-row">
+    <div class="table-col">Fra</div>
+    <div class="table-col-bar limited-two" style="width:9.4%; max-width: 85% !important;">94280</div>
+    
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+  <div class="infographic-table-row">
+    <div class="table-col">Tur</div>
+    <div class="table-col-bar limited-two" style="width:7.9%; max-width: 85% !important;">79485</div>
+    
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+  <div class="infographic-table-row">
+    <div class="table-col">Rus</div>
+    <div class="table-col-bar limited-two" style="width:6.7%; max-width: 85% !important;">67657</div>
+    
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+  <div class="infographic-table-row">
+    <div class="table-col">Ger</div>
+    <div class="table-col-bar limited-two" style="width:4.0%; max-width: 85% !important;">40480</div>
+    
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+  <div class="infographic-table-row">
+    <div class="table-col">Ned</div>
+    <div class="table-col-bar limited-two" style="width:3.2%; max-width: 85% !important;">32531</div>
+    
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+  <div class="infographic-table-row">
+    <div class="table-col">Bel</div>
+    <div class="table-col-bar limited-two" style="width:2.7%; max-width: 85% !important;">27492</div>
+    
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+  <div class="infographic-table-row">
+    <div class="table-col">Brz</div>
+    <div class="table-col-bar limited-two" style="width:2.6%; max-width: 85% !important;">26945</div>
+    
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+  <div class="infographic-table-row">
+    <div class="table-col">Can</div>
+    <div class="table-col-bar limited-two" style="width:2.6%; max-width: 85% !important;">26234</div>
+    
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+  <div class="infographic-table-row">
+    <div class="table-col">Por</div>
+    <div class="table-col-bar limited-two" style="width:2.1%; max-width: 85% !important;">21235</div>
+    
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+  <div class="infographic-table-row">
+    <div class="table-col">Ind</div>
+    <div class="table-col-bar limited-two" style="width:1.9%; max-width: 85% !important;">19519</div>
+    
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+  <div class="infographic-table-row">
+    <div class="table-col">Per</div>
+    <div class="table-col-bar limited-two" style="width:1.6%; max-width: 85% !important;">16834</div>
+    
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+  <div class="infographic-table-row">
+    <div class="table-col">Irn</div>
+    <div class="table-col-bar limited-two" style="width:1.5%; max-width: 85% !important;">15485</div>
+    
+  </div>
+
+
+
+</div>
+</div>
+
+
+<div class="graph-02">
+<div class="infographic-table-graph">
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<div class="infographic-table-row">
+		<div class="table-col">USA</div>
+		<div class="table-col-bar limited-two" style="width:95.4%; max-width: 85% !important;">
+    954125
+    </div>
+		<div class="table-col-change numeral">+28893</div>
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+	<div class="infographic-table-row">
+		<div class="table-col">UK</div>
+		<div class="table-col-bar limited-two" style="width:14.8%; max-width: 85% !important;">
+    148377
+    </div>
+		<div class="table-col-change numeral">+4913</div>
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+	<div class="infographic-table-row">
+		<div class="table-col">Ita</div>
+		<div class="table-col-bar limited-two" style="width:19.5%; max-width: 85% !important;">
+    195351
+    </div>
+		<div class="table-col-change numeral">+2357</div>
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+	<div class="infographic-table-row">
+		<div class="table-col">Spa</div>
+		<div class="table-col-bar limited-two" style="width:22.3%; max-width: 85% !important;">
+    223759
+    </div>
+		<div class="table-col-change numeral">+3995</div>
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+	<div class="infographic-table-row">
+		<div class="table-col">Fra</div>
+		<div class="table-col-bar limited-two" style="width:16.1%; max-width: 85% !important;">
+    161488
+    </div>
+		<div class="table-col-change numeral">+1660</div>
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+	<div class="infographic-table-row">
+		<div class="table-col">Tur</div>
+		<div class="table-col-bar limited-two" style="width:10.7%; max-width: 85% !important;">
+    107773
+    </div>
+		<div class="table-col-change numeral">+2861</div>
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+	<div class="infographic-table-row">
+		<div class="table-col">Rus</div>
+		<div class="table-col-bar limited-two" style="width:7.4%; max-width: 85% !important;">
+    74588
+    </div>
+		<div class="table-col-change numeral">+5966</div>
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+	<div class="infographic-table-row">
+		<div class="table-col">Ger</div>
+		<div class="table-col-bar limited-two" style="width:15.6%; max-width: 85% !important;">
+    156126
+    </div>
+		<div class="table-col-change numeral">+1127</div>
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+	<div class="infographic-table-row">
+		<div class="table-col">Ned</div>
+		<div class="table-col-bar limited-two" style="width:3.7%; max-width: 85% !important;">
+    37190
+    </div>
+		<div class="table-col-change numeral">+655</div>
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+	<div class="infographic-table-row">
+		<div class="table-col">Bel</div>
+		<div class="table-col-bar limited-two" style="width:4.5%; max-width: 85% !important;">
+    45325
+    </div>
+		<div class="table-col-change numeral">+1032</div>
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+	<div class="infographic-table-row">
+		<div class="table-col">Brz</div>
+		<div class="table-col-bar limited-two" style="width:5.8%; max-width: 85% !important;">
+    58616
+    </div>
+		<div class="table-col-change numeral">+5621</div>
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+	<div class="infographic-table-row">
+		<div class="table-col">Can</div>
+		<div class="table-col-bar limited-two" style="width:4.5%; max-width: 85% !important;">
+    45016
+    </div>
+		<div class="table-col-change numeral">+1128</div>
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+	<div class="infographic-table-row">
+		<div class="table-col">Por</div>
+		<div class="table-col-bar limited-two" style="width:2.3%; max-width: 85% !important;">
+    23392
+    </div>
+		<div class="table-col-change numeral">+595</div>
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+	<div class="infographic-table-row">
+		<div class="table-col">Ind</div>
+		<div class="table-col-bar limited-two" style="width:2.6%; max-width: 85% !important;">
+    26283
+    </div>
+		<div class="table-col-change numeral">+1836</div>
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+	<div class="infographic-table-row">
+		<div class="table-col">Per</div>
+		<div class="table-col-bar limited-two" style="width:2.5%; max-width: 85% !important;">
+    25331
+    </div>
+		<div class="table-col-change numeral">+3683</div>
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+	<div class="infographic-table-row">
+		<div class="table-col">Irn</div>
+		<div class="table-col-bar limited-two" style="width:8.9%; max-width: 85% !important;">
+    89328
+    </div>
+		<div class="table-col-change numeral">+1134</div>
+	</div>
+
+
+
+</div>
+</div>
+
+
+</div>
+</div>
+
+
+
+<!-- START VIRUS GROWTH SECTION -->
+<div class="section section-shaded bg-cool-grey-01 s_section">
+<div class="section-inner" data-aos="fade-up">
+<div class="section-header with-btm-margin">
+<h2>Recent virus growth by country</h2>
+<p>Increase in cases over past 24 hours &mdash; top 8 countries</p>
+<div class="toggle">
+<ul>
+  <li class="toggle-05 active">By Number</li>
+  <li class="toggle-06">By Percent</li>
+</ul>
+</div>
+</div>
+
+
+<div class="reset centered growth-chart-container">
+
+<div class="graph-05">
+<div class="vertical-bar-chart">
+
+
+
+
+<div class="vertical-bar-chart-item">
+  <div class="vertical-bar-chart-label-top numeral">
++28893
+</div>
+  <div class="vertical-bar-chart-bar-container">
+  <div class="vertical-bar-chart-bar" style="height:406px">
+  </div>
+  </div>
+<div class="vertical-bar-chart-name">
+USA
+</div>
+<div class="vertical-bar-chart-label numeral">
++28893
+</div>
+
+</div>
+
+
+
+
+<div class="vertical-bar-chart-item">
+  <div class="vertical-bar-chart-label-top numeral">
++5966
+</div>
+  <div class="vertical-bar-chart-bar-container">
+  <div class="vertical-bar-chart-bar" style="height:84px">
+  </div>
+  </div>
+<div class="vertical-bar-chart-name">
+Rus
+</div>
+<div class="vertical-bar-chart-label numeral">
++5966
+</div>
+
+</div>
+
+
+
+
+<div class="vertical-bar-chart-item">
+  <div class="vertical-bar-chart-label-top numeral">
++5621
+</div>
+  <div class="vertical-bar-chart-bar-container">
+  <div class="vertical-bar-chart-bar" style="height:79px">
+  </div>
+  </div>
+<div class="vertical-bar-chart-name">
+Brz
+</div>
+<div class="vertical-bar-chart-label numeral">
++5621
+</div>
+
+</div>
+
+
+
+
+<div class="vertical-bar-chart-item">
+  <div class="vertical-bar-chart-label-top numeral">
++4913
+</div>
+  <div class="vertical-bar-chart-bar-container">
+  <div class="vertical-bar-chart-bar" style="height:69px">
+  </div>
+  </div>
+<div class="vertical-bar-chart-name">
+UK
+</div>
+<div class="vertical-bar-chart-label numeral">
++4913
+</div>
+
+</div>
+
+
+
+
+<div class="vertical-bar-chart-item">
+  <div class="vertical-bar-chart-label-top numeral">
++3995
+</div>
+  <div class="vertical-bar-chart-bar-container">
+  <div class="vertical-bar-chart-bar" style="height:56px">
+  </div>
+  </div>
+<div class="vertical-bar-chart-name">
+Spa
+</div>
+<div class="vertical-bar-chart-label numeral">
++3995
+</div>
+
+</div>
+
+
+
+
+<div class="vertical-bar-chart-item">
+  <div class="vertical-bar-chart-label-top numeral">
++3683
+</div>
+  <div class="vertical-bar-chart-bar-container">
+  <div class="vertical-bar-chart-bar" style="height:51px">
+  </div>
+  </div>
+<div class="vertical-bar-chart-name">
+Per
+</div>
+<div class="vertical-bar-chart-label numeral">
++3683
+</div>
+
+</div>
+
+
+
+
+<div class="vertical-bar-chart-item">
+  <div class="vertical-bar-chart-label-top numeral">
++2861
+</div>
+  <div class="vertical-bar-chart-bar-container">
+  <div class="vertical-bar-chart-bar" style="height:40px">
+  </div>
+  </div>
+<div class="vertical-bar-chart-name">
+Tur
+</div>
+<div class="vertical-bar-chart-label numeral">
++2861
+</div>
+
+</div>
+
+
+
+
+<div class="vertical-bar-chart-item">
+  <div class="vertical-bar-chart-label-top numeral">
++2357
+</div>
+  <div class="vertical-bar-chart-bar-container">
+  <div class="vertical-bar-chart-bar" style="height:33px">
+  </div>
+  </div>
+<div class="vertical-bar-chart-name">
+Ita
+</div>
+<div class="vertical-bar-chart-label numeral">
++2357
+</div>
+
+</div>
+
+
+</div>
+</div>
+
+
+
+<div class="graph-06">
+<div class="vertical-bar-chart">
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="vertical-bar-chart-item">
+  <div class="vertical-bar-chart-label-top numeral">
++4%
+</div>
+  <div class="vertical-bar-chart-bar-container">
+  <div class="vertical-bar-chart-bar" style="height:55.477px">
+  </div>
+  </div>
+<div class="vertical-bar-chart-name">
+USA
+</div>
+<div class="vertical-bar-chart-label numeral">
+28893
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="vertical-bar-chart-item">
+  <div class="vertical-bar-chart-label-top numeral">
++10%
+</div>
+  <div class="vertical-bar-chart-bar-container">
+  <div class="vertical-bar-chart-bar" style="height:140.2295px">
+  </div>
+  </div>
+<div class="vertical-bar-chart-name">
+Rus
+</div>
+<div class="vertical-bar-chart-label numeral">
+5966
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="vertical-bar-chart-item">
+  <div class="vertical-bar-chart-label-top numeral">
++26%
+</div>
+  <div class="vertical-bar-chart-bar-container">
+  <div class="vertical-bar-chart-bar" style="height:382.22px">
+  </div>
+  </div>
+<div class="vertical-bar-chart-name">
+Brz
+</div>
+<div class="vertical-bar-chart-label numeral">
+5621
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="vertical-bar-chart-item">
+  <div class="vertical-bar-chart-label-top numeral">
++4%
+</div>
+  <div class="vertical-bar-chart-bar-container">
+  <div class="vertical-bar-chart-bar" style="height:58.0145px">
+  </div>
+  </div>
+<div class="vertical-bar-chart-name">
+UK
+</div>
+<div class="vertical-bar-chart-label numeral">
+4913
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="vertical-bar-chart-item">
+  <div class="vertical-bar-chart-label-top numeral">
++4%
+</div>
+  <div class="vertical-bar-chart-bar-container">
+  <div class="vertical-bar-chart-bar" style="height:57.2605px">
+  </div>
+  </div>
+<div class="vertical-bar-chart-name">
+Spa
+</div>
+<div class="vertical-bar-chart-label numeral">
+3995
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="vertical-bar-chart-item">
+  <div class="vertical-bar-chart-label-top numeral">
++28%
+</div>
+  <div class="vertical-bar-chart-bar-container">
+  <div class="vertical-bar-chart-bar" style="height:406.0725px">
+  </div>
+  </div>
+<div class="vertical-bar-chart-name">
+Per
+</div>
+<div class="vertical-bar-chart-label numeral">
+3683
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="vertical-bar-chart-item">
+  <div class="vertical-bar-chart-label-top numeral">
++4%
+</div>
+  <div class="vertical-bar-chart-bar-container">
+  <div class="vertical-bar-chart-bar" style="height:54.143px">
+  </div>
+  </div>
+<div class="vertical-bar-chart-name">
+Tur
+</div>
+<div class="vertical-bar-chart-label numeral">
+2861
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="vertical-bar-chart-item">
+  <div class="vertical-bar-chart-label-top numeral">
++2%
+</div>
+  <div class="vertical-bar-chart-bar-container">
+  <div class="vertical-bar-chart-bar" style="height:33.031px">
+  </div>
+  </div>
+<div class="vertical-bar-chart-name">
+Ita
+</div>
+<div class="vertical-bar-chart-label numeral">
+2357
+</div>
+
+</div>
+
+
+</div>
+</div>
+</div>
+
+
+</div>
+</div>
+<!-- END VIRUS GROWTH SECTION -->
+
+
+
+<!-- START VIRUS SPREAD SECTION -->
+<div class="section section-shaded bg-cool-grey-02 s_section">
+<div class="section-inner" data-aos="fade-up">
+<div class="section-header">
+<h2>Virus spread by country</h2>
+<p>Confirmed cases in relation to population size</p>
+</div>
+
+<div class="reset centered">
+
+
+
+
+
+
+
+
+
+
+
+<div class="infographic-grid-item half-width">
+<div class="infographic-circular">
+  <div class="infographic-circular-data" style="width: 48%; height: 48%">
+  </div>
+
+</div>
+<div class="infographic-circular-caption">
+  USA
+</div>
+<div class="infographic-circular-stat-below">
+0.29%
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="infographic-grid-item half-width">
+<div class="infographic-circular">
+  <div class="infographic-circular-data" style="width: 79%; height: 79%">
+  </div>
+
+</div>
+<div class="infographic-circular-caption">
+  Spain
+</div>
+<div class="infographic-circular-stat-below">
+0.48%
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="infographic-grid-item half-width">
+<div class="infographic-circular">
+  <div class="infographic-circular-data" style="width: 54%; height: 54%">
+  </div>
+
+</div>
+<div class="infographic-circular-caption">
+  Italy
+</div>
+<div class="infographic-circular-stat-below">
+0.33%
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="infographic-grid-item half-width">
+<div class="infographic-circular">
+  <div class="infographic-circular-data" style="width: 40%; height: 40%">
+  </div>
+
+</div>
+<div class="infographic-circular-caption">
+  France
+</div>
+<div class="infographic-circular-stat-below">
+0.24%
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="infographic-grid-item half-width">
+<div class="infographic-circular">
+  <div class="infographic-circular-data" style="width: 31%; height: 31%">
+  </div>
+
+</div>
+<div class="infographic-circular-caption">
+  Germany
+</div>
+<div class="infographic-circular-stat-below">
+0.19%
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="infographic-grid-item half-width">
+<div class="infographic-circular">
+  <div class="infographic-circular-data" style="width: 36%; height: 36%">
+  </div>
+
+</div>
+<div class="infographic-circular-caption">
+  UK
+</div>
+<div class="infographic-circular-stat-below">
+0.22%
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="infographic-grid-item half-width">
+<div class="infographic-circular">
+  <div class="infographic-circular-data" style="width: 21%; height: 21%">
+  </div>
+
+</div>
+<div class="infographic-circular-caption">
+  Turkey
+</div>
+<div class="infographic-circular-stat-below">
+0.13%
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="infographic-grid-item half-width">
+<div class="infographic-circular">
+  <div class="infographic-circular-data" style="width: 18%; height: 18%">
+  </div>
+
+</div>
+<div class="infographic-circular-caption">
+  Iran
+</div>
+<div class="infographic-circular-stat-below">
+0.11%
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="infographic-grid-item half-width">
+<div class="infographic-circular">
+  <div class="infographic-circular-data" style="width: 0%; height: 0%">
+  </div>
+
+</div>
+<div class="infographic-circular-caption">
+  China
+</div>
+<div class="infographic-circular-stat-below">
+0.01%
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="infographic-grid-item half-width">
+<div class="infographic-circular">
+  <div class="infographic-circular-data" style="width: 8%; height: 8%">
+  </div>
+
+</div>
+<div class="infographic-circular-caption">
+  Russia
+</div>
+<div class="infographic-circular-stat-below">
+0.05%
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="infographic-grid-item half-width">
+<div class="infographic-circular">
+  <div class="infographic-circular-data" style="width: 4%; height: 4%">
+  </div>
+
+</div>
+<div class="infographic-circular-caption">
+  Brazil
+</div>
+<div class="infographic-circular-stat-below">
+0.03%
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="infographic-grid-item half-width">
+<div class="infographic-circular">
+  <div class="infographic-circular-data" style="width: 68%; height: 68%">
+  </div>
+
+</div>
+<div class="infographic-circular-caption">
+  Belgium
+</div>
+<div class="infographic-circular-stat-below">
+0.41%
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="infographic-grid-item half-width">
+<div class="infographic-circular">
+  <div class="infographic-circular-data" style="width: 20%; height: 20%">
+  </div>
+
+</div>
+<div class="infographic-circular-caption">
+  Canada
+</div>
+<div class="infographic-circular-stat-below">
+0.12%
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="infographic-grid-item half-width">
+<div class="infographic-circular">
+  <div class="infographic-circular-data" style="width: 36%; height: 36%">
+  </div>
+
+</div>
+<div class="infographic-circular-caption">
+  Netherlands
+</div>
+<div class="infographic-circular-stat-below">
+0.22%
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="infographic-grid-item half-width">
+<div class="infographic-circular">
+  <div class="infographic-circular-data" style="width: 53%; height: 53%">
+  </div>
+
+</div>
+<div class="infographic-circular-caption">
+  Switzerland
+</div>
+<div class="infographic-circular-stat-below">
+0.32%
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="infographic-grid-item half-width">
+<div class="infographic-circular">
+  <div class="infographic-circular-data" style="width: 0%; height: 0%">
+  </div>
+
+</div>
+<div class="infographic-circular-caption">
+  India
+</div>
+<div class="infographic-circular-stat-below">
+0.0%
+</div>
+</div>
+
+
+</div>
+</div>
+</div>
+<!-- END VIRUS SPREAD SECTION -->
+
+
+
+<!-- START FATALITIES SECTION -->
+<div class="section bg-cool-grey-03 s_section">
+<div class="section-inner" data-aos="fade-up">
+<div class="section-header">
+<h2>Fatalities</h2>
+<p>Number and rate of fatalities in relation to cases</p>
+<div class="toggle">
+<ul>
+  <li class="toggle-03 active">By Number</li>
+  <li class="toggle-04">By Rate</li>
+</ul>
+</div>
+</div>
+
+<div class="graph-03">
+<div class="infographic-table-graph">
+
+
+
+
+
+ 
+  <div class="infographic-table-row">
+    <div class="table-col">USA</div>
+    <div class="table-col-bar limited-four death-bar" style="width:98%; max-width: 85% !important">54038</div>
+    <div class="table-col-change numeral">+1845</div>
+  </div>
+
+
+
+ 
+  <div class="infographic-table-row">
+    <div class="table-col">Ita</div>
+    <div class="table-col-bar limited-four death-bar" style="width:48%; max-width: 85% !important">26384</div>
+    <div class="table-col-change numeral">+415</div>
+  </div>
+
+
+
+ 
+  <div class="infographic-table-row">
+    <div class="table-col">Spa</div>
+    <div class="table-col-bar limited-four death-bar" style="width:41%; max-width: 85% !important">22902</div>
+    <div class="table-col-change numeral">+378</div>
+  </div>
+
+
+
+ 
+  <div class="infographic-table-row">
+    <div class="table-col">Fra</div>
+    <div class="table-col-bar limited-four death-bar" style="width:41%; max-width: 85% !important">22614</div>
+    <div class="table-col-change numeral">+369</div>
+  </div>
+
+
+
+ 
+  <div class="infographic-table-row">
+    <div class="table-col">UK</div>
+    <div class="table-col-bar limited-four death-bar" style="width:37%; max-width: 85% !important">20319</div>
+    <div class="table-col-change numeral">+813</div>
+  </div>
+
+
+
+ 
+  <div class="infographic-table-row">
+    <div class="table-col">Bel</div>
+    <div class="table-col-bar limited-four death-bar" style="width:12%; max-width: 85% !important">6917</div>
+    <div class="table-col-change numeral">+238</div>
+  </div>
+
+
+
+ 
+  <div class="infographic-table-row">
+    <div class="table-col">Ger</div>
+    <div class="table-col-bar limited-four death-bar" style="width:10%; max-width: 85% !important">5846</div>
+    <div class="table-col-change numeral">+86</div>
+  </div>
+
+
+
+ 
+  <div class="infographic-table-row">
+    <div class="table-col">Irn</div>
+    <div class="table-col-bar limited-four death-bar" style="width:10%; max-width: 85% !important">5650</div>
+    <div class="table-col-change numeral">+76</div>
+  </div>
+
+
+
+ 
+  <div class="infographic-table-row">
+    <div class="table-col">Chn</div>
+    <div class="table-col-bar limited-four death-bar" style="width:8%; max-width: 85% !important">4632</div>
+    <div class="table-col-change numeral">+0</div>
+  </div>
+
+
+
+ 
+  <div class="infographic-table-row">
+    <div class="table-col">Ned</div>
+    <div class="table-col-bar limited-four death-bar" style="width:8%; max-width: 85% !important">4409</div>
+    <div class="table-col-change numeral">+120</div>
+  </div>
+
+
+
+ 
+  <div class="infographic-table-row">
+    <div class="table-col">Brz</div>
+    <div class="table-col-bar limited-four death-bar" style="width:7%; max-width: 85% !important">4016</div>
+    <div class="table-col-change numeral">+346</div>
+  </div>
+
+
+
+ 
+  <div class="infographic-table-row">
+    <div class="table-col">Tur</div>
+    <div class="table-col-bar limited-four death-bar" style="width:5%; max-width: 85% !important">2706</div>
+    <div class="table-col-change numeral">+106</div>
+  </div>
+
+
+
+ 
+  <div class="infographic-table-row">
+    <div class="table-col">Can</div>
+    <div class="table-col-bar limited-four death-bar" style="width:4%; max-width: 85% !important">2462</div>
+    <div class="table-col-change numeral">+160</div>
+  </div>
+
+
+
+ 
+  <div class="infographic-table-row">
+    <div class="table-col">Swi</div>
+    <div class="table-col-bar limited-four death-bar" style="width:3%; max-width: 85% !important">1599</div>
+    <div class="table-col-change numeral">+10</div>
+  </div>
+
+
+
+ 
+  <div class="infographic-table-row">
+    <div class="table-col">Irl</div>
+    <div class="table-col-bar limited-four death-bar" style="width:2%; max-width: 85% !important">1063</div>
+    <div class="table-col-change numeral">+49</div>
+  </div>
+
+
+
+ 
+  <div class="infographic-table-row">
+    <div class="table-col">Por</div>
+    <div class="table-col-bar limited-four death-bar" style="width:1%; max-width: 85% !important">880</div>
+    <div class="table-col-change numeral">+26</div>
+  </div>
+
+</div>
+</div>
+
+<div class="graph-04">
+<div class="infographic-table-graph">
+
+
+
+
+
+
+
+
+ 
+
+ 
+  <div class="infographic-table-row clearfix">
+    <div class="table-col">USA</div>
+    <div class="table-col-bar limited-one death-bar" style="width:28.5%; max-width: 85% !important">5.7%</div>
+
+  </div>
+
+
+
+
+
+
+ 
+
+ 
+  <div class="infographic-table-row clearfix">
+    <div class="table-col">Ita</div>
+    <div class="table-col-bar limited-one death-bar" style="width:67.5%; max-width: 85% !important">13.5%</div>
+
+  </div>
+
+
+
+
+
+
+ 
+
+ 
+  <div class="infographic-table-row clearfix">
+    <div class="table-col">Spa</div>
+    <div class="table-col-bar limited-one death-bar" style="width:51.0%; max-width: 85% !important">10.2%</div>
+
+  </div>
+
+
+
+
+
+
+ 
+
+ 
+  <div class="infographic-table-row clearfix">
+    <div class="table-col">Fra</div>
+    <div class="table-col-bar limited-one death-bar" style="width:70.0%; max-width: 85% !important">14.0%</div>
+
+  </div>
+
+
+
+
+
+
+ 
+
+ 
+  <div class="infographic-table-row clearfix">
+    <div class="table-col">UK</div>
+    <div class="table-col-bar limited-one death-bar" style="width:68.5%; max-width: 85% !important">13.7%</div>
+
+  </div>
+
+
+
+
+
+
+ 
+
+ 
+  <div class="infographic-table-row clearfix">
+    <div class="table-col">Bel</div>
+    <div class="table-col-bar limited-one death-bar" style="width:76.5%; max-width: 85% !important">15.3%</div>
+
+  </div>
+
+
+
+
+
+
+ 
+
+ 
+  <div class="infographic-table-row clearfix">
+    <div class="table-col">Ger</div>
+    <div class="table-col-bar limited-one death-bar" style="width:18.5%; max-width: 85% !important">3.7%</div>
+
+  </div>
+
+
+
+
+
+
+ 
+
+ 
+  <div class="infographic-table-row clearfix">
+    <div class="table-col">Irn</div>
+    <div class="table-col-bar limited-one death-bar" style="width:31.5%; max-width: 85% !important">6.3%</div>
+
+  </div>
+
+
+
+
+
+
+ 
+
+ 
+  <div class="infographic-table-row clearfix">
+    <div class="table-col">Chn</div>
+    <div class="table-col-bar limited-one death-bar" style="width:28.0%; max-width: 85% !important">5.6%</div>
+
+  </div>
+
+
+
+
+
+
+ 
+
+ 
+  <div class="infographic-table-row clearfix">
+    <div class="table-col">Ned</div>
+    <div class="table-col-bar limited-one death-bar" style="width:59.5%; max-width: 85% !important">11.9%</div>
+
+  </div>
+
+
+
+
+
+
+ 
+
+ 
+  <div class="infographic-table-row clearfix">
+    <div class="table-col">Brz</div>
+    <div class="table-col-bar limited-one death-bar" style="width:34.5%; max-width: 85% !important">6.9%</div>
+
+  </div>
+
+
+
+
+
+
+ 
+
+ 
+  <div class="infographic-table-row clearfix">
+    <div class="table-col">Tur</div>
+    <div class="table-col-bar limited-one death-bar" style="width:12.5%; max-width: 85% !important">2.5%</div>
+
+  </div>
+
+
+
+
+
+
+ 
+
+ 
+  <div class="infographic-table-row clearfix">
+    <div class="table-col">Can</div>
+    <div class="table-col-bar limited-one death-bar" style="width:27.5%; max-width: 85% !important">5.5%</div>
+
+  </div>
+
+
+
+
+
+
+ 
+
+ 
+  <div class="infographic-table-row clearfix">
+    <div class="table-col">Swi</div>
+    <div class="table-col-bar limited-one death-bar" style="width:27.5%; max-width: 85% !important">5.5%</div>
+
+  </div>
+
+
+
+
+
+
+ 
+
+ 
+  <div class="infographic-table-row clearfix">
+    <div class="table-col">Irl</div>
+    <div class="table-col-bar limited-one death-bar" style="width:28.5%; max-width: 85% !important">5.7%</div>
+
+  </div>
+
+
+
+
+
+
+ 
+
+ 
+  <div class="infographic-table-row clearfix">
+    <div class="table-col">Por</div>
+    <div class="table-col-bar limited-one death-bar" style="width:19.0%; max-width: 85% !important">3.8%</div>
+
+  </div>
+
+</div>
+</div>
+
+</div>
+</div>
+<!-- START FATALITIES SECTION -->
+
+
+
+
+<!-- START RECOVERIES SECTION -->
+
+<div class="section bg-cool-grey-02 no-overflow s_section">
+<div class="section-inner" data-aos="fade-up">
+<div class="section-header">
+<h2>Recoveries</h2>
+<p>Global recoveries compared to global fatalities</p>
+</div>
+
+<div class="reset">
+
+<div class="comparison-chart">
+
+
+
+
+
+
+
+<div class="comparison-chart-left-half">
+  <div class="comparison-chart-numb">
+    <div class="numeral">
+    202851
+  </div>
+     <div class="comparison-stat-caption">Fatalities</div>
+  </div>
+
+  <div class="comparison-chart-bar-left" style="width: 75px; height: 75px"></div>
+</div>
+<div class="comparison-chart-right-half">
+  <div class="comparison-chart-bar-right" style="width: 308px; height: 308px"></div>
+<div class="comparison-chart-numb">
+  <div class="numeral">
+  832501
+</div>
+  <div class="comparison-stat-caption">Recoveries</div>
+</div>
+
+</div>
+
+
+</div>
+</div>
+</div>
+</div>
+<!-- END RECOVERIES SECTION -->
+
+
+
+<!-- START TRENDING SECTION -->
+<div class="section bg-cool-grey-01 s_section">
+<div class="section-inner" data-aos="fade-up">
+<div class="section-header">
+<h2>Trend</h2>
+<p>Total number of cases globally &mdash; past 7 days</p>
+</div>
+
+<div class="reset centered">
+<div class="dot-chart">
+
+
+
+
+
+
+<div class="dot-chart-dot-col">
+  
+<div class="dot-chart-dot" style="bottom: 235.5px">
+
+</div>
+<div class="dot-chart-name">
+19
+</div>
+</div>
+
+
+
+<div class="dot-chart-dot-col">
+  
+<div class="dot-chart-dot" style="bottom: 275.5px">
+
+</div>
+<div class="dot-chart-name">
+20
+</div>
+</div>
+
+
+
+<div class="dot-chart-dot-col">
+  
+<div class="dot-chart-dot" style="bottom: 313.5px">
+
+</div>
+<div class="dot-chart-name">
+21
+</div>
+</div>
+
+
+
+<div class="dot-chart-dot-col">
+  
+<div class="dot-chart-dot" style="bottom: 356.5px">
+
+</div>
+<div class="dot-chart-name">
+22
+</div>
+</div>
+
+
+
+<div class="dot-chart-dot-col">
+  
+<div class="dot-chart-dot" style="bottom: 399.5px">
+
+</div>
+<div class="dot-chart-name">
+23
+</div>
+</div>
+
+
+
+<div class="dot-chart-dot-col">
+  
+<div class="dot-chart-dot" style="bottom: 452.0px">
+
+</div>
+<div class="dot-chart-name">
+24
+</div>
+</div>
+
+
+
+<div class="dot-chart-dot-col">
+  
+<div class="dot-chart-dot" style="bottom: 493.0px">
+
+</div>
+<div class="dot-chart-name">
+25
+</div>
+</div>
+
+<div class="axis">
+<div class="dot-chart-axis">3.0m</div>
+<div class="dot-chart-axis">2.9m</div>
+<div class="dot-chart-axis">2.8m</div>
+<div class="dot-chart-axis">2.7m</div>
+<div class="dot-chart-axis">2.6m</div>
+<div class="dot-chart-axis">2.5m</div>
+<div class="dot-chart-axis">2.4m</div>
+<div class="dot-chart-axis">2.3m</div>
+<div class="dot-chart-axis">2.2m</div>
+<div class="dot-chart-axis">2.1m</div>
+<div class="dot-chart-axis">2.0m</div>
+</div>
+</div>
+
+</div>
+
+
+</div>
+</div>
+<!-- END TRENDING SECTION -->
+
+
+
+
+
+
+<div class="footer">
+A data visualisation project by <a href="http://winteractive.co" target="_blank">W&ndash;Interactive</a><br />
+&copy; Copyright 2020 &mdash; All Rights Reserved
+<div class="footer-share">Share this site:<br />
+<a class="share-icon-li" href="JavaScript:window.open('https://www.linkedin.com/shareArticle?&url=https://covid19virusdata.com','','width=600,height=600')">Linkedin</a><a class="share-icon-fb" href="JavaScript:window.open('https://www.facebook.com/share.php?u=https://covid19virusdata.com','','width=600,height=600')">Facebook</a><a class="share-icon-tw" href="JavaScript:window.open('https://twitter.com/share?text=Covid-19 Data Dashboard by W-Interactive&url=https://covid19virusdata.com','','width=600,height=600')">Twitter</a>
+</div>  
+  <div class="footer-btt">
+    <a href="index.html#top">Return to top</a>
+  </div>
+
+</div>
+
+</div>
+
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+    AOS.init(
+  {
+    duration: 1600,
+        offset: 0,
+    once: true
+  }
+  );
+</script>
+
+</body>
+</html>
